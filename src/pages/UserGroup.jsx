@@ -9,6 +9,7 @@ const UserPriority = (props) => {
   let users = props.users
   let order = props.order
 
+  // Sorting based on priority and title based on the order property
   if(order==="Priority"){
     tickets.sort((a, b) => {
       return b.priority - a.priority;
@@ -28,12 +29,17 @@ const UserPriority = (props) => {
     }); 
   }
 
+  // Making of objects that should be traversed and shown in the page
   let userObjs = users.map((data) => {
+
+    // creating arrays for each user
     let userArr = tickets
       .filter((ticket) => ticket.userId === data.id)
       .map((filteredTicket) => {
         return filteredTicket;
       });
+
+      // returning the object
     return {
       symbol: data,
       Name: data.name,
@@ -43,6 +49,7 @@ const UserPriority = (props) => {
     };
   });
 
+  // The objects created above will be traversed and required values will be used to display.
   return (
     <div className="tickets_container">
       {userObjs.map((obj) => {

@@ -8,15 +8,22 @@ import Profilepic from './Profilepic'
 
 const Card = (props) => {
 
+    // taking variables from props we passed
     let ticket = props.ticket
     let users = props.users
+
+    // finding user of the current ticket
     let userArray = users.filter((item)=>{
         return item.id===ticket.userId
     })
     let user = userArray[0];
+
     let group = props.group
 
+    // Retrieving tags
     let tagArr = ticket.tag
+
+    // Truncating the title to fit the card nicely
     const fullTitle = ticket.title
     const truncatedTitle = fullTitle.slice(0,65);
 
@@ -40,6 +47,7 @@ const Card = (props) => {
         </div>
         <div className="card_footer">
             <div style={{display: group==="priority"?"none":""}}>
+                {/* adding symbols based on the priority */}
             {ticket.priority===0?<TbLineDashed className='card_priority'></TbLineDashed>
                 :ticket.priority===1?<PiCellSignalLowFill className='card_priority'></PiCellSignalLowFill>
                 :ticket.priority===2?<PiCellSignalMediumFill className='card_priority'></PiCellSignalMediumFill>

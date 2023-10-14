@@ -10,6 +10,7 @@ const PriorityGroup = (props) => {
   let tickets = props.tickets
   let users = props.users
 
+  // Sorting based on the title as they are already grouped by Priority
   tickets.sort((a, b) => {
     const nameA = a.title.toLowerCase(); 
     const nameB = b.title.toLowerCase();
@@ -23,15 +24,21 @@ const PriorityGroup = (props) => {
     }
   });
 
+  // Priority order to be shown
   let priorityCat = [0,4,3,2,1];
 
+  // Making of objects that should be traversed and shown in the page
   let priorityCatObjs = priorityCat.map((data) => {
+
+    // creating arrays for each priority
     let priorityArr = tickets
       .filter((ticket) => ticket.priority === data)
       .map((filteredTicket) => {
         return filteredTicket;
       });
       let name = ["No Priority", "Low", "Medium", "High", "Urgent"]
+
+      // returning the object required
     return {
       symbol: data,
       Name: name[data],
@@ -41,6 +48,7 @@ const PriorityGroup = (props) => {
     };
   });
 
+  // The objects created above will be traversed and required values will be used to display.
   return (
     <div className="tickets_container">
       {priorityCatObjs.map((obj) => {

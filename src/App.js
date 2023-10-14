@@ -1,12 +1,15 @@
 import React,{createContext} from 'react';
 import Navbar from './components/Navbar';
 import useLocalStorage from './hooks/useLocalStorage';
-import Homepage from './components/Homepage';
+import Homepage from './pages/Homepage';
+
+// creating context
 
 export const UserContext = createContext();
 
 
 function App() {
+  // using local storage hook to keep things asusual when reloaded
   const [group, setGroup] = useLocalStorage('grp','Status')
   const [order, setOrder] = useLocalStorage('odr','Priority')
 

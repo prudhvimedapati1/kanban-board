@@ -4,6 +4,7 @@ import { UserContext } from "../App";
 
 const Dropdown = () => {
   
+  // Retrieving context
   const {group, order, passGroup, passOrder} = useContext(UserContext);
   const [grp, setGrp] = useState(group)
   const [odr, setOdr] = useState(order)
@@ -12,11 +13,12 @@ const Dropdown = () => {
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
+    // Making sure that values inside select tab doesn't change unless user clicks done button
     setGrp(group)
     setOdr(order)
   };
  
-
+  // Maintaining local state until user clicks done
   const handleItemClick1 = (item) => {
     setGrp(item.target.value)
   };
@@ -24,12 +26,14 @@ const Dropdown = () => {
     setOdr(item.target.value)
   };
 
+  // Making sure the context changes only when user clicks done, this also closes the dropdown
   const closeDropdown = () => {
     setIsOpen(!isOpen)
     passGroup(grp);
     passOrder(odr);
   }
 
+  // defining options for select menu
   const items1 = ["Status", "User", "Priority"];
   const items2 = ["Priority", "Title"];
 

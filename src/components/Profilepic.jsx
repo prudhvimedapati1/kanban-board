@@ -11,6 +11,7 @@ const Profilepic = (props) => {
     let online = props.online
     let userId = props.user.id
 
+    // Setting images based on users (These images are owned by me because image data is not provided in the API)
     let imgNum = userId.charAt(userId.length-1)
     let img = imgNum==='1'?IMG1:imgNum==='2'?IMG2:imgNum==='3'?IMG3:imgNum==='4'?IMG4:IMG5
 
