@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{createContext} from 'react';
+import Navbar from './components/Navbar';
+import useLocalStorage from './hooks/useLocalStorage';
+import Homepage from './components/Homepage';
+
+export const UserContext = createContext();
+
 
 function App() {
+  const [group, setGroup] = useLocalStorage('grp','Status')
+  const [order, setOrder] = useLocalStorage('odr','Priority')
+
+  const passGroup=(item)=>{
+    setGroup(item);
+  }
+  const passOrder=(item)=>{
+    setOrder(item);
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <UserContext.Provider value={{group, passGroup, order, passOrder}}>
+    <div>
+      <Navbar></Navbar>
+      <Homepage></Homepage>
     </div>
+    </UserContext.Provider>
   );
 }
 

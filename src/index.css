@@ -1,13 +1,244 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* defining variables */
+
+:root{
+  --bg-grey1: #f4f5f8;
+  --bg-grey2: #f5f5fa;
+  --bg-black: rgb(99, 109, 129);
+  --bg-black1: rgb(72, 80, 95);
+  --bg-white: #ffffff;
+  --bg-shadow: #dfe1e7e2;
+  --font-grey: #9e9e9e;
+  --font-black: #090909;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  margin: 0;
+  background-color: var(--bg-grey1);
+  overflow: hidden;
+}
+
+/* Dropdown Menu */
+
+.dropdown_container {
+  position: relative;
+  display: inline-block;
+  background-color: var(--bg-white);
+}
+
+.dropdown_button{
+  background-color: var(--bg-white);
+  padding: 5px 10px;
+  cursor: pointer;
+  display: flex;
+  gap: 5px;
+  justify-content: space-between;
+  margin: 20px;
+  border-radius: 5px;
+  border: .5px solid var(--bg-grey1);
+  box-shadow: 0px 0px 2px 1px var(--bg-shadow);
+}
+.dropdown_button span{
+  padding: 0 1px 0 1px;
+}
+
+.dropdown_list {
+  z-index: 2;
+  background-color: var(--bg-grey2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 80%;
+  left: 20px;
+  border-radius: 5px;
+  background-color: var(--bg-grey2);
+  box-shadow: 0px 0px 4px 1.5px var(--bg-shadow);
+}
+
+.dropdown_done{
+  color: white;
+  background-color: var(--bg-black);
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+}
+
+.dropdown_done:hover{
+  background-color: var(--bg-black1);
+}
+
+.dropdown_list li {
+  padding: 10px 10px 10px 10px;
+  cursor: pointer;
+}
+
+.dropdown_list li:hover {
+  background-color: #f2f2f2;
+}
+
+.dropdown_list li span{
+  color: var(--font-grey);
+}
+
+.dropdown2{
+  display: flex;
+  gap: 20px;
+  width: 230px;
+  justify-content: space-between;
+}
+
+select{
+  width: 100px;
+  background-color: var(--bg-white);
+  border: 0.5px solid rgb(160, 160, 160);
+  border-radius: 3px;
+}
+
+
+/* Nav bar */
+
+.nav_container{
+  background-color: var(--bg-white);
+}
+
+/* Card */
+
+.card_container{
+  width: 280px;
+  min-height: 80px;
+  margin: 10px;
+  border: .5px solid var(--bg-grey1);
+  border-radius: 5px;
+  background-color: var(--bg-white);
+  box-shadow: 0px 0px 5px 2px var(--bg-shadow);
+}
+
+.card_title{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px 10px 3px 10px;
+}
+
+.card_title span{
+  font-size: 0.7em;
+  color: var(--font-grey);
+}
+
+.card_body{
+  display: flex;
+  align-items: flex-start;
+  padding: 0 10px;
+  gap: 7px;
+}
+
+.card_body span{
+  font-size: .8em;
+}
+
+.card_footer{
+  padding: 10px 10px;
+  display: flex;
+  gap: 10px;
+  color: var(--font-grey);
+}
+
+.card_priority{
+  border: 1px solid var(--bg-grey1);
+  border-radius: 2px;
+  align-self: flex-end;
+}
+
+.card_feature_outer{
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.card_feature{
+  padding: 1px;
+  display: flex;
+  gap: 5px;
+  font-size: .7em;
+  align-items: center;
+  border: 1px solid var(--bg-grey1);
+}
+
+.card_circle{
+  font-size: .7em;
+}
+
+/* Profile Pic */
+
+.profile_container{
+  position: relative;
+}
+
+.profile_container img{
+  width: 16px;
+  height: 16px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.profile_online{
+  font-size: 2em;
+  position: absolute;
+  top: -3px;
+  right: -14px;
+  z-index: 1;
+}
+.profile_online2{
+  color: white;
+  font-size: 2.5em;
+  position: absolute;
+  top: -7px;
+  right: -18px;
+ 
+}
+
+/* tickets container */
+
+.tickets_container{
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  overflow: auto;
+}
+
+.tickets_container::-webkit-scrollbar {
+  width: 0; 
+}
+
+.tickets_inner_container{
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title_bar{
+  display: flex;
+  position: relative;
+  align-items: center;
+  font-size: 0.9em;
+  gap: 10px;
+  padding: 5px 13px 15px 13px;
+}
+
+.plus_dash{
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  position: absolute;
+  right: 20px;
 }
